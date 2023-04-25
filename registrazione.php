@@ -19,7 +19,7 @@
 <body>
     <h1>Pagina di Registrazione</h1>
     <form action=registra.php method=post>
-    <div>
+          <div>
             <label for=nome>Inserisci il nome: </label>
             <input type=text name="nome" id="nome" placeholder="Nome" required />
             <label for=cognome>Inserisci il cognome: </label>
