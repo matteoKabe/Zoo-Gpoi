@@ -34,7 +34,7 @@
             <input type=password name="password" id="password" placeholder="Password" required />
         </div>
         <div>
-            <input type="submit" value="invia" />
+            <input type="submit" name="invia" />
         </div>
     </form>
     <a href="login.php">Torna alla pagin di Login</a>

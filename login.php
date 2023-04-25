@@ -25,7 +25,7 @@
             <input type=password name="password" id="password" placeholder="Password" required />
         </div>
         <div>
-            <input type="submit" value="invia" />
+            <input type="submit" name="invia" />
         </div>
     </form>
     Non hai un account? <a href=registrazione.php>Registrati ora!</a>
