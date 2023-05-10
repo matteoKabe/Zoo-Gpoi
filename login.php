@@ -22,7 +22,7 @@
             <label for=email>Inserisci l'email: </label>
             <input type=email name="email" id="email" placeholder="Email" required />
             <label for=password>Inserisci la password: </label>
-            <input type=password name="password" id="password" placeholder="Password" required />
+            <input type=password name="pass" id="pass" placeholder="Password" required />
         </div>
         <div>
             <input type="submit" name="invia" />

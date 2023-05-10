@@ -3,7 +3,7 @@
 
     //manca tutto il controllo per i vari login per admin e per lavoratore 
     $email = $_REQUEST['email'];
-    $pass = md5($_REQUEST['pass']);
+    $password = md5($_REQUEST['pass']);
     $_SESSION['nome'] = $nome;
 
     $conn = new mysqli("127.0.0.1", "root", "", "Zoo");
@@ -12,19 +12,16 @@
         die();
     }
 
-    //login per i clienti
-    $query = "SELECT * FROM Persona WHERE email='$email' AND pass='$pass'";
-    $ris = $conn->query($query);
-    if ($conn->affected_rows == 1) {
-        $_SESSION['user'] = $user;
-        header("location:zoo.php");
+    //login per l'admin
+    if($email == "admin@gmail.com" && $password == "21232f297a57a5a743894a0e4a801fc3"){
+        header("location:zooAdmin.php");
         die();
     }
 
     //login per i dipendenti
     //dato che i dipendenti sono gli unici ad avere l'attributo "nomignolo" allora se avrò una riga che risponde alla mia query
     //vuol dire che avrò trovato un lavoratore
-    $query = "SELECT nomignolo FROM Dipendenti WHERE email='$email' AND pass='$pass'";
+    $query = "SELECT Nomignolo FROM Dipendenti, Persona WHERE Dipendenti.cod_persona = Persona.cod_persona AND mail='$email' AND password='$password';";
     $ris = $conn->query($query);
     if ($conn->affected_rows == 1) {
         $riga = $ris->fetch_assoc();
@@ -34,6 +31,13 @@
         die();
     }
 
+    //login per i clienti
+    $query = "SELECT * FROM Persona WHERE mail='$email' AND password='$password'";
+    $ris = $conn->query($query);
+    if ($conn->affected_rows == 1) {
+        header("location:zoo_cliente.php");
+        die();
+    }
 
     header("location:login.php?err=1");
 
